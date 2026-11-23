@@ -1,0 +1,8 @@
+description: "A striker for Swift: a mass on a felt that stiffens as it is pressed, to strike a resonator with."
+topics:
+  - acoustics
+  - physical-modelling
+  - audio
+homepage: "https://swift-institute.org"
+readme:
+  family: E
