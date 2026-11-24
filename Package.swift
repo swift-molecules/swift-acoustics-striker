@@ -16,14 +16,16 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/swift-molecules/swift-acoustics.git", branch: "main"),
-        .package(url: "https://github.com/swift-atoms/swift-numeric.git", branch: "main"),
+        .package(url: "https://github.com/swift-molecules/swift-contact.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-mass.git", branch: "main"),
     ],
     targets: [
         .target(
             name: "Acoustics Striker",
             dependencies: [
                 .product(name: "Acoustics", package: "swift-acoustics"),
-                .product(name: "Numeric", package: "swift-numeric"),
+                .product(name: "Contact", package: "swift-contact"),
+                .product(name: "Mass", package: "swift-mass"),
             ]
         ),
         .testTarget(

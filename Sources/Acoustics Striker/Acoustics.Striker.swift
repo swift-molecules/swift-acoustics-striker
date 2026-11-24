@@ -1,25 +1,14 @@
-internal import Numeric
-
 extension Acoustics {
+    /// A mass that strikes through a contact that stiffens as it is pressed: a drumstick, a mallet, a hammer.
     public struct Striker: Hashable, Sendable {
-        public var mass: Double
-        public var stiffness: Double
-        public var exponent: Double
+        /// What moves with the striker.
+        public var mass: Mass.Value<Double>
+        /// The felt, leather or wood it presses with: no force until pressed, then F₀ (δ / δ₀)^α.
+        public var contact: Contact
 
-        public init(mass: Double, stiffness: Double, exponent: Double) {
+        public init(mass: Mass.Value<Double>, contact: Contact) {
             self.mass = mass
-            self.stiffness = stiffness
-            self.exponent = exponent
+            self.contact = contact
         }
-    }
-}
-
-extension Acoustics.Striker {
-    public func force(pressed compression: Double) -> Double {
-        compression > 0 ? stiffness * Double.math.pow(compression, exponent) : 0
-    }
-
-    public func energy(pressed compression: Double) -> Double {
-        compression > 0 ? stiffness / (exponent + 1) * Double.math.pow(compression, exponent + 1) : 0
     }
 }
